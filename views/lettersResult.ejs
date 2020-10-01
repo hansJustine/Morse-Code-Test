@@ -1,0 +1,29 @@
+<%- include('partials/header') -%>
+
+<div class="container">
+    <div class="text-center testTitle">
+        <h3 class="display-4"> MORSE CODE TEST</h3>
+        <h2 class="text-muted">RESULT</h2>
+    </div>
+    <h5 class="text-center score">SCORE: <%=score%> / 15</h5>
+    <% if(wrongAnswers.length > 0){ %>
+        <div class="wrongAnswersContainer">
+            <h4 class="text-center wrongAnswer">Wrong Answer(s)</h4>
+            <div class="row">
+                <% wrongAnswers.forEach(answer => { %>
+                    <div class="col-3 text-center">
+                        <h1><%= answer.code %></h1>
+                        <h5 class="wrongAnswer text-muted">Your answer: <%= answer.wrongLetter.toLowerCase() %></h5>
+                        <h5 class="correctAnswer">Correct answer: <%= answer.letter %></h5>
+                    </div>
+                <% }) %>    
+            </div>
+        </div>
+    <% } %>
+
+    <div class="btnContainer">
+        <a href="/" class="btn btn-primary submitBtn">Play Again</a>
+    </div>
+</div>
+
+<%- include('partials/footer') -%>

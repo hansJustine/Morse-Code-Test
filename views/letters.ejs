@@ -1,0 +1,23 @@
+<%- include('partials/header') -%>
+<div class="container">
+    <div class="text-center testTitle">
+        <h3 class="display-4"> MORSE CODE TEST</h3>
+        <small class="text-muted">GUESS THE CODES</small>
+    </div>
+    <form action="/result" method="POST">
+        <div class="row">
+            <% tempCodes.forEach(morse => { %>
+                <div class="col text-center">
+                    <h1><%= morse.code %></h1>
+                    <input type="text" name="codes" id="" maxlength="1" required>
+                </div>
+            <% }) %>    
+        </div>
+        <div class="btnContainer">
+            <button class="btn btn-primary submitBtn">submit</button>
+        </div>
+    </form>
+</div>
+
+
+<%- include('partials/footer') -%>
